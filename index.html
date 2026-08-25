@@ -18,14 +18,14 @@
     box-sizing: border-box; 
   }
 
-  /* Prevent elements from exceeding viewport width */
+  /* Prevent elements from overflowing overflow-x */
   img, iframe {
     max-width: 100%;
   }
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    /* Deep black background with randomly placed subtle ambient glow spots (purple, indigo, deep cyan) */
+    /* Deep black background with subtle ambient glow spots */
     background-color: #050508;
     background-image: 
       radial-gradient(circle at 15% 20%, rgba(120, 40, 200, 0.18) 0%, transparent 45%),
@@ -38,7 +38,7 @@
     line-height: 1.6;
   }
 
-  /* Enhanced Glassmorphism Cards */
+  /* Glassmorphism Cards */
   .glass {
     background: var(--glass-bg);
     backdrop-filter: blur(25px);
@@ -123,7 +123,9 @@
     fill: currentColor; 
   }
 
-  /* Hero Section */
+  /* --------------------------------------------------
+     1. HERO SECTION (COMPUTER / DESKTOP VIEW)
+  -------------------------------------------------- */
   .hero-cover {
     position: relative;
     width: 100%;
@@ -132,7 +134,9 @@
     align-items: center;
     justify-content: flex-start;
     padding: 0 8%;
-    background-image: url('NHKB.jpg');
+
+    /* Computer එකේ පෙනෙන Horizontal Photo එක */
+    background-image: url('desktop-cover.jpg'); 
     background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
@@ -145,14 +149,14 @@
     inset: 0;
     background: linear-gradient(
       90deg, 
-      rgba(5, 5, 8, 0.95) 0%, 
-      rgba(5, 5, 8, 0.65) 45%, 
+      rgba(5, 5, 8, 0.92) 0%, 
+      rgba(5, 5, 8, 0.60) 45%, 
       transparent 100%
     );
     z-index: 1;
   }
 
-  /* Bottom Blend to Seamlessly Match the #050508 Body Background */
+  /* Bottom Blend Gradient */
   .hero-cover::after {
     content: '';
     position: absolute;
@@ -283,7 +287,6 @@
     transform: scale(1.02); 
   }
 
-  /* Direct Active Video Container */
   .video-frame {
     position: relative;
     aspect-ratio: 16/9;
@@ -490,7 +493,9 @@
     z-index: 2;
   }
 
-  /* Responsive Design */
+  /* --------------------------------------------------
+     2. RESPONSIVE DESIGN & MOBILE FIXES
+  -------------------------------------------------- */
   @media (max-width: 900px) {
     .channel-grid { grid-template-columns: 1fr; }
     .social-grid { grid-template-columns: repeat(2, 1fr); }
@@ -512,13 +517,26 @@
       height: 34px;
     }
 
+    /* PHONE / MOBILE VIEW HERO SECTION FIX */
     .hero-cover {
-      padding: 130px 20px 80px;
+      /* Phone එකේදී පෙන්නන Vertical (9:16) Photo එක */
+      background-image: url('mobile-cover.jpg'); 
       background-position: center center;
+      background-size: cover;
+      padding: 140px 20px 80px;
+      justify-content: center;
+      text-align: center;
     }
+
+    /* Mobile Text Gradient Overlay */
     .hero-cover::before {
-      background: rgba(5, 5, 8, 0.85); /* Solid dark overlay on mobile for text readability */
+      background: linear-gradient(
+        180deg, 
+        rgba(5, 5, 8, 0.4) 0%, 
+        rgba(5, 5, 8, 0.85) 100%
+      );
     }
+
     .hero-content h1 { 
       font-size: 38px; 
     }
@@ -532,6 +550,7 @@
       width: 100%; 
     }
 
+    /* Layout Grids */
     .gallery, .videos-section, .socials {
       padding: 60px 20px 20px;
     }
