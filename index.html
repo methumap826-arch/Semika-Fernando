@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEMIKA FERNANDO | Official Website</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+  :root {
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.12);
+  }
+
+  * { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    /* Deep black background with randomly placed subtle ambient glow spots (purple, indigo, deep cyan) */
+    background-color: #050508;
+    background-image: 
+      radial-gradient(circle at 15% 20%, rgba(120, 40, 200, 0.18) 0%, transparent 45%),
+      radial-gradient(circle at 85% 45%, rgba(60, 20, 130, 0.22) 0%, transparent 40%),
+      radial-gradient(circle at 25% 75%, rgba(30, 80, 160, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 75% 90%, rgba(140, 30, 150, 0.16) 0%, transparent 45%);
+    background-attachment: fixed;
+    color: #ffffff;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* Enhanced Glassmorphism Cards */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Navigation Bar */
+  nav {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0;
+    z-index: 1000;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: rgba(5, 5, 8, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .nav-links { 
+    display: flex; 
+    gap: 32px; 
+    list-style: none; 
+  }
+
+  .nav-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover { 
+    color: #fff; 
+  }
+
+  .nav-socials { 
+    display: flex; 
+    gap: 10px; 
+  }
+
+  .icon-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .icon-btn:hover { 
+    transform: translateY(-2px); 
+    background: rgba(255,255,255,0.16); 
+  }
+
+  .icon-btn svg { 
+    width: 16px; 
+    height: 16px; 
+    fill: currentColor; 
+  }
+
+  /* Hero Section */
+  .hero-cover {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 8%;
+    background-image: url('NHKB.jpg');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+  }
+
+  /* Left Overlay for Text Clarity */
+  .hero-cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg, 
+      rgba(5, 5, 8, 0.95) 0%, 
+      rgba(5, 5, 8, 0.65) 45%, 
+      transparent 100%
+    );
+    z-index: 1;
+  }
+
+  /* Bottom Blend to Seamlessly Match the #050508 Body Background */
+  .hero-cover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 250px;
+    background: linear-gradient(to top, #050508 0%, rgba(5, 5, 8, 0.8) 40%, transparent 100%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #c084fc;
+    margin-bottom: 20px;
+  }
+
+  .hero-content h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+  }
+
+  /* Content Sections */
+  .gallery, .videos-section {
+    padding: 100px 40px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-title {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: -1.5px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .section-sub {
+    text-align: center;
+    opacity: 0.7;
+    margin-bottom: 56px;
+    font-size: 17px;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+
+  .video-card {
+    overflow: hidden;
+    border-radius: 20px;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .video-card:hover { 
+    transform: scale(1.02); 
+  }
+
+  /* Direct Active Video Container */
+  .video-frame {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: #000;
+    width: 100%;
+  }
+
+  .video-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .video-meta { 
+    padding: 20px 22px 22px; 
+  }
+
+  .video-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    opacity: 0.55;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .video-meta h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .channel-card {
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+
+  .channel-info { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+  }
+
+  .yt-mark {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: #ff0000;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    font-size: 22px;
+  }
+
+  .channel-info h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    margin-bottom: 4px;
+  }
+
+  .channel-info p { 
+    opacity: 0.7; 
+    font-size: 15px; 
+  }
+
+  .yt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    color: #000;
+    padding: 14px 26px;
+    border-radius: 9999px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .channel-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+  }
+
+  .featured-embed { 
+    overflow: hidden; 
+    border-radius: 24px; 
+  }
+
+  .featured-embed .video-frame { 
+    aspect-ratio: 16/9; 
+  }
+
+  .side-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 16px; 
+  }
+
+  .mini-card {
+    display: grid;
+    grid-template-columns: 168px 1fr;
+    overflow: hidden;
+    border-radius: 18px;
+    text-decoration: none;
+    color: inherit;
+    min-height: 96px;
+    transition: transform 0.25s;
+  }
+
+  .mini-card:hover { 
+    transform: translateX(4px); 
+  }
+
+  .mini-thumb { 
+    position: relative; 
+    background: #111; 
+  }
+
+  .mini-thumb img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mini-body {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .mini-body span {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    font-weight: 600;
+  }
+
+  .mini-body strong {
+    font-size: 16px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .socials {
+    padding: 80px 40px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .social-card {
+    padding: 28px 22px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s;
+  }
+
+  .social-card:hover { 
+    transform: translateY(-4px); 
+  }
+
+  .social-card .mark { 
+    font-size: 28px; 
+    margin-bottom: 10px; 
+  }
+
+  .social-card h3 { 
+    font-family: 'Space Grotesk', sans-serif; 
+    font-size: 18px; 
+    margin-bottom: 4px; 
+  }
+
+  .social-card p { 
+    opacity: 0.6; 
+    font-size: 13px; 
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 14px;
+    opacity: 0.6;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .channel-grid { grid-template-columns: 1fr; }
+    .social-grid { grid-template-columns: 1fr; }
+    .mini-card { grid-template-columns: 140px 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero-content h1 { font-size: 42px; }
+    .hero-content p { font-size: 16px; }
+    .cta-group { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="glass">
+    <a href="#home" class="logo">SEMIKA</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Voice Teens</a></li>
+      <li><a href="#videos">YouTube</a></li>
+      <li><a href="#social">Connect</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-socials">
+      <a class="icon-btn" href="https://www.youtube.com/@semika_thinuwara" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.8 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://instagram.com/semika_fernando_" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zm5.25-3.25a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://facebook.com/share/193ddntcbZ" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-2c0-.6.4-1 1-1z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://tiktok.com/@semikafernando" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M14.5 3c.4 2.4 1.8 4.1 4.2 4.4v3c-1.4 0-2.7-.4-3.9-1.2v6.3A6.5 6.5 0 1 1 9.4 9.2v3.1a3.4 3.4 0 1 0 2.4 3.2V3h2.7z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Cover Section -->
+  <header id="home" class="hero-cover">
+    <div class="hero-content">
+      <span class="badge">The Voice Teens Artist</span>
+      <h1>SEMIKA FERNANDO</h1>
+      <p>Experience the music, live stage performances, and soulful vocals delivered with true passion.</p>
+      <div class="cta-group">
+        <a href="#gallery" class="btn btn-primary">Watch Performances</a>
+        <a href="https://www.youtube.com/@semika_thinuwara" target="_blank" rel="noopener" class="btn btn-secondary">YouTube Channel</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Voice Teens Section -->
+  <section id="gallery" class="gallery">
+    <h2 class="section-title">Voice Teens</h2>
+    <p class="section-sub">Blind Auditions · Battles · Knockouts</p>
+
+    <div class="photo-grid">
+      <article class="video-card glass">
+        <div class="video-frame">
+         <iframe width="624" height="360" src="https://www.youtube.com/embed/dLUhYac_BAM" title="Andun Kundun (අන්දුන් කුන්දුන්) කොදු වෙදා | 07th June 2026 | Sirasa TV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-meta">
+          <div class="video-label">Blind Audition</div>
+          <h3>Loka sithiyama (ලෝක සිතියම)</h3>
+        </div>
+      </article>
+
+      <article class="video-card glass">
+        <div class="video-frame">
+          <iframe 
+            src="https://www.youtube.com/embed/cKybYnq2tLk?start=245" 
+            title="The Battles - Voice Teens S3" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-meta">
+          <div class="video-label">Battles</div>
+          <h3>The Battles — Voice Teens S3</h3>
+        </div>
+      </article>
+
+      <article class="video-card glass">
+        <div class="video-frame">
+          <iframe 
+            src="https://www.youtube.com/embed/-9HBX8cHqh8" 
+            title="Sanda Renu Galana - Knockouts" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-meta">
+          <div class="video-label">Knockouts</div>
+          <h3>Sanda Renu Galana (සඳ රේණු ගලන)</h3>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- YouTube Channel Section -->
+  <section id="videos" class="videos-section">
+    <h2 class="section-title">YouTube</h2>
+    <p class="section-sub">Latest uploads from @semika_thinuwara</p>
+
+    <div class="channel-card glass">
+      <div class="channel-info">
+        <div class="yt-mark">▶</div>
+        <div>
+          <h3>Semika Thinuwara</h3>
+          <p>@semika_thinuwara · Official channel</p>
+        </div>
+      </div>
+      <a class="yt-btn" href="https://www.youtube.com/@semika_thinuwara" target="_blank" rel="noopener">Visit channel →</a>
+    </div>
+
+    <div class="channel-grid">
+      <div class="featured-embed glass">
+        <div class="video-frame">
+          <iframe 
+            src="https://www.youtube.com/embed/cEY5tsR0CAI" 
+            title="Featured Video" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-meta">
+          <div class="video-label">Latest on the channel</div>
+          <h3>Loka sithiyama — Blind Audition</h3>
+        </div>
+      </div>
+
+      <div class="side-list">
+        <a class="mini-card glass" href="https://www.youtube.com/watch?v=cEY5tsR0CAI" target="_blank" rel="noopener">
+          <div class="mini-thumb">
+            <img src="https://img.youtube.com/vi/cEY5tsR0CAI/hqdefault.jpg" alt="Loka sithiyama">
+          </div>
+          <div class="mini-body">
+            <span>Blind Audition</span>
+            <strong>Loka sithiyama</strong>
+          </div>
+        </a>
+        <a class="mini-card glass" href="https://www.youtube.com/watch?v=cKybYnq2tLk&t=245s" target="_blank" rel="noopener">
+          <div class="mini-thumb">
+            <img src="https://img.youtube.com/vi/cKybYnq2tLk/hqdefault.jpg" alt="Voice Teens Battles">
+          </div>
+          <div class="mini-body">
+            <span>Battles</span>
+            <strong>Voice Teens S3</strong>
+          </div>
+        </a>
+        <a class="mini-card glass" href="https://www.youtube.com/watch?v=-9HBX8cHqh8" target="_blank" rel="noopener">
+          <div class="mini-thumb">
+            <img src="https://img.youtube.com/vi/-9HBX8cHqh8/hqdefault.jpg" alt="Sanda Renu Galana">
+          </div>
+          <div class="mini-body">
+            <span>Knockouts</span>
+            <strong>Sanda Renu Galana</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect / Socials Section -->
+  <section id="social" class="socials">
+    <h2 class="section-title">Connect</h2>
+    <p class="section-sub">Follow Semika everywhere</p>
+    <div class="social-grid">
+      <a class="social-card glass" href="https://instagram.com/semika_fernando_" target="_blank" rel="noopener">
+        <div class="mark">◎</div>
+        <h3>Instagram</h3>
+        <p>@semika_fernando_</p>
+      </a>
+      <a class="social-card glass" href="https://facebook.com/share/193ddntcbZ" target="_blank" rel="noopener">
+        <div class="mark">f</div>
+        <h3>Facebook</h3>
+        <p>Official page</p>
+      </a>
+      <a class="social-card glass" href="https://tiktok.com/@semikafernando" target="_blank" rel="noopener">
+        <div class="mark">♪</div>
+        <h3>TikTok</h3>
+        <p>@semikafernando</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Newsletter / Contact Section -->
+  <section id="contact" style="padding: 60px 40px 100px; text-align: center; position: relative; z-index: 2;">
+    <div class="glass" style="max-width: 520px; margin: 0 auto; padding: 50px 40px;">
+      <h3 style="font-size: 28px; margin-bottom: 12px; font-family: 'Space Grotesk', sans-serif;">Stay in the loop</h3>
+      <p style="margin-bottom: 30px; opacity: 0.75;">Get notified when new music drops.</p>
+      <div style="display: flex; gap: 12px; max-width: 340px; margin: 0 auto; flex-wrap: wrap;">
+        <input type="email" placeholder="your@email.com"
+               style="flex: 1; padding: 14px 20px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; font-size: 15px;">
+        <button style="padding: 14px 28px; border-radius: 9999px; background: white; color: black; font-weight: 600; border: none; cursor: pointer;">Join</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 • All moments captured with intention.</footer>
+
+</body>
+</html>
