@@ -18,6 +18,11 @@
     box-sizing: border-box; 
   }
 
+  /* Prevent elements from exceeding viewport width */
+  img, iframe {
+    max-width: 100%;
+  }
+
   body {
     font-family: 'Inter', system-ui, sans-serif;
     /* Deep black background with randomly placed subtle ambient glow spots (purple, indigo, deep cyan) */
@@ -122,7 +127,7 @@
   .hero-cover {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -488,17 +493,75 @@
   /* Responsive Design */
   @media (max-width: 900px) {
     .channel-grid { grid-template-columns: 1fr; }
-    .social-grid { grid-template-columns: 1fr; }
+    .social-grid { grid-template-columns: repeat(2, 1fr); }
     .mini-card { grid-template-columns: 140px 1fr; }
   }
 
   @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
-    .nav-links { display: none; }
-    .hero-content h1 { font-size: 42px; }
-    .hero-content p { font-size: 16px; }
-    .cta-group { flex-direction: column; }
-    .btn { width: 100%; }
+    nav { 
+      padding: 14px 20px; 
+    }
+    .nav-links { 
+      display: none; 
+    }
+    .nav-socials {
+      gap: 6px;
+    }
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+    }
+
+    .hero-cover {
+      padding: 130px 20px 80px;
+      background-position: center center;
+    }
+    .hero-cover::before {
+      background: rgba(5, 5, 8, 0.85); /* Solid dark overlay on mobile for text readability */
+    }
+    .hero-content h1 { 
+      font-size: 38px; 
+    }
+    .hero-content p { 
+      font-size: 15px; 
+    }
+    .cta-group { 
+      flex-direction: column; 
+    }
+    .btn { 
+      width: 100%; 
+    }
+
+    .gallery, .videos-section, .socials {
+      padding: 60px 20px 20px;
+    }
+    .section-title {
+      font-size: 32px;
+    }
+    .photo-grid {
+      grid-template-columns: 1fr;
+    }
+    .social-grid {
+      grid-template-columns: 1fr;
+    }
+    .channel-card {
+      padding: 24px;
+    }
+    .mini-card {
+      grid-template-columns: 120px 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo {
+      font-size: 20px;
+    }
+    .mini-card {
+      grid-template-columns: 1fr;
+    }
+    .mini-thumb {
+      height: 140px;
+    }
   }
 </style>
 </head>
@@ -679,14 +742,14 @@
   </section>
 
   <!-- Newsletter / Contact Section -->
-  <section id="contact" style="padding: 60px 40px 100px; text-align: center; position: relative; z-index: 2;">
-    <div class="glass" style="max-width: 520px; margin: 0 auto; padding: 50px 40px;">
+  <section id="contact" style="padding: 60px 20px 100px; text-align: center; position: relative; z-index: 2;">
+    <div class="glass" style="max-width: 520px; margin: 0 auto; padding: 40px 20px;">
       <h3 style="font-size: 28px; margin-bottom: 12px; font-family: 'Space Grotesk', sans-serif;">Stay in the loop</h3>
       <p style="margin-bottom: 30px; opacity: 0.75;">Get notified when new music drops.</p>
       <div style="display: flex; gap: 12px; max-width: 340px; margin: 0 auto; flex-wrap: wrap;">
         <input type="email" placeholder="your@email.com"
-               style="flex: 1; padding: 14px 20px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; font-size: 15px;">
-        <button style="padding: 14px 28px; border-radius: 9999px; background: white; color: black; font-weight: 600; border: none; cursor: pointer;">Join</button>
+               style="flex: 1; min-width: 200px; padding: 14px 20px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white; font-size: 15px;">
+        <button style="padding: 14px 28px; width: 100%; border-radius: 9999px; background: white; color: black; font-weight: 600; border: none; cursor: pointer;">Join</button>
       </div>
     </div>
   </section>
